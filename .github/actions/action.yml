@@ -3,9 +3,11 @@ inputs:
    source:
     description: "source system"
     required: true
+    default: "source1"
    target:
      description: "target system"
      required: true
+     default: "target1"
 
 runs:
   using: composite

@@ -5,7 +5,7 @@ jobs:
   json_substitution:
    runs-on: ubuntu-latest
    steps:
-     - uses: ./.github/actions
+     - uses: ./.github/actions/
        with:
          source: ${{ env.source }}
          target: ${{ env.target }}

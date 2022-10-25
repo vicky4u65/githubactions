@@ -1,0 +1,9 @@
+name: abc
+on : [push]
+jobs:
+  event-types:
+   runs-on: ubuntu-latest
+   steps:
+     - name: print
+       run: |
+        echo "Hi"

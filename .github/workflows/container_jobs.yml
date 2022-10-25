@@ -1,5 +1,5 @@
 name: jobs using containers
-on: push
+on: pull_request
 
 jobs:
   node_js_container:

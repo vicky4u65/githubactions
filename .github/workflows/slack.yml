@@ -1,0 +1,13 @@
+name: slack notify
+on: push
+
+jobs:
+  slack_notify:
+   runs-on: ubuntu-latest
+   steps:
+     - name: slack 
+       uses: docker://technosophos/slack-notify
+       env:
+        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+        SLACK_MESSAGE: "Hello from github action"
+        

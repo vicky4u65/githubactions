@@ -21,6 +21,9 @@ jobs:
      - uses: microsoft/variable-substitution@v1
        with:
          files : ${{ inputs.source }}_${{ inputs.target}}.json
+       env:
+        source: ${{ inputs.source }}
+        target: ${{ inputs.target}}
      - name: commiting changes
        run: |
          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"

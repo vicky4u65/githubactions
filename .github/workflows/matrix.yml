@@ -7,11 +7,17 @@ jobs:
      matrix:
       os: [ubuntu-latest , macos-latest , windows-latest]
       node_version: [6, 8, 10]
+      include:
+       - os: ubuntu-latest
+         node_version: 10
+         included: "true"
       exclude: 
        - os: macos-latest 
          node_version: 6
      fail-fast: true
    runs-on: ${{ matrix.os }}
+   env:
+    INCLUDED: ${{ matrix.included }}
    steps:
     - name: Node version 
       run: node -v 
@@ -19,7 +25,11 @@ jobs:
       with:
         node-version: ${{ matrix.node_version}}
     - name: New Node Version 
-      run: node -v
+      run: |
+       node -v
+       echo $INCLUDED
+    
+      
       
      
 

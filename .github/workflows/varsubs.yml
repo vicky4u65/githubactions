@@ -26,7 +26,7 @@ jobs:
        run: |
          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
          git config --local user.name "github-actions[bot]"
-         git commit -m ${{ inputs.source }}_${{ inputs.target}}.json -a
+         git commit -m '${{ inputs.source }}_${{ inputs.target}}.json' -a
      - uses: ad-m/github-push-action@master
        with:
          github_token: ${{ secrets.GITHUB_TOKEN }}

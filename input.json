@@ -1,6 +1,6 @@
 {
-    "first-name": "Toni",
-    "last-name": "Cranz",
+    "source": "Toni",
+    "target": "Cranz",
     "username": "vicky",
     "password": "test",
     "url": "https"

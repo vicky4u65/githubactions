@@ -1,25 +1,14 @@
 name: Variable susbstitution
 on: push
+inputs:
+ source:
+  required: "true"
 
 jobs:
   json_substitution:
    runs-on: ubuntu-latest
    steps:
-     - uses: actions/checkout@v2
-     - uses: microsoft/variable-substitution@v1
+     - uses: ./.github/actions
        with:
-         files: 'input.json'
-       env:
-         username: "vicky"
-         password: "test"
-         url: "https"
-     - name: commit changes
-       run: |
-         git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-         git config --local user.name "github-actions[bot]"
-         git commit -m "commit msg" -a
-     - uses: ad-m/github-push-action@master
-       with:
-         github_token: ${{ secrets.GITHUB_TOKEN }}
-         branch: ${{ github.ref }}
-       
+         source: ${{ env.source }}
+         target: ${{ env.target }}

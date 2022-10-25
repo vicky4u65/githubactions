@@ -1,0 +1,31 @@
+name: Create New file from template
+inputs:
+   source:
+    description: "source system"
+    required: true
+   target:
+     description: "target system"
+     required: true
+
+runs:
+  using: composite
+  steps:
+    - uses: actions/checkout
+    - name: 'creating new json file'
+      run : |
+       cp input.json ${{ inputs.source }}_${{ inputs.target}}.json
+    - uses: microsoft/variable-substitution@v1
+      with:
+        files : ${{ inputs.source }}_${{ inputs.target}}.json
+      env:
+       source: ${{ inputs.source }}
+       target: ${{ inputs.target}}
+    - name: commiting changes
+      run: |
+         git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+         git config --local user.name "github-actions[bot]"
+         git commit -m ${{ inputs.source }}_${{ inputs.target}}.json -a
+    - uses: ad-m/github-push-action@master
+      with:
+         github_token: ${{ secrets.GITHUB_TOKEN }}
+         branch: ${{ github.ref }}

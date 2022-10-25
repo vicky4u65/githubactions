@@ -1,8 +1,5 @@
 name: Variable susbstitution
 on: push
-inputs:
- source:
-  required: "true"
 
 jobs:
   json_substitution:

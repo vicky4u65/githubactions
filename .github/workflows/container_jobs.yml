@@ -8,4 +8,6 @@ jobs:
      image: node:19-alpine3.15
    steps:
      - name: Log version
-       run: node -v
+       run: |
+        node -v
+        cat /etc/os-release

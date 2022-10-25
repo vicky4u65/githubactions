@@ -1,0 +1,11 @@
+name: jobs using containers
+on: push
+
+jobs:
+  node_js_container:
+   runs-on: ubuntu-latest
+   container: 
+     image: node:19-alpine3.15
+   steps:
+     - name: Log version
+       run: node -v

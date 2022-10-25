@@ -1,5 +1,5 @@
 name: abc
-on : [push]
+on : pull_request
 
 jobs:
   os-versions:

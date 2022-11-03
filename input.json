@@ -3,5 +3,6 @@
     "target": "Cranz",
     "username": "vicky",
     "password": "test",
-    "url": "https"
+    "url": "https",
+    "key": "value"
 }
